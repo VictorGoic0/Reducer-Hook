@@ -53,7 +53,7 @@ export const reducer = (state, action) => {
     case "CLEAR_TODOS":
       return {
         ...state,
-        todos: state.todos.filter(input => !input.completed)
+        todos: state.todos.filter(todo => !todo.completed)
       };
 
     default:

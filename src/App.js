@@ -20,6 +20,12 @@ const App = () => {
     dispatch(action);
     setNewTodo("");
   };
+  const clearCompleted = () => {
+    const action = {
+      type: "CLEAR_TODOS"
+    };
+    dispatch(action);
+  };
   return (
     <div className="container">
       <h1>ToDo List</h1>
@@ -29,6 +35,7 @@ const App = () => {
         handleChanges={handleChanges}
         addTodo={addTodo}
       />
+      <button onClick={clearCompleted}>Clear Completed</button>
     </div>
   );
 };
