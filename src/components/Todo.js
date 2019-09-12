@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { toggleTodo } from "../actions";
 
 class Todo extends Component {
   toggleTodo = id => {
@@ -19,7 +17,4 @@ class Todo extends Component {
   }
 }
 
-export default connect(
-  null,
-  { toggleTodo }
-)(Todo);
+export default Todo;
