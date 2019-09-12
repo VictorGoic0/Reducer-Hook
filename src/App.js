@@ -23,7 +23,7 @@ const App = () => {
   return (
     <div className="container">
       <h1>ToDo List</h1>
-      <TodoList todos={todos} />
+      <TodoList todos={todos} dispatch={dispatch} />
       <TodoForm
         newTodo={newTodo}
         handleChanges={handleChanges}

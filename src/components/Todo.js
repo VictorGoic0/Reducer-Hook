@@ -1,20 +1,22 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Todo extends Component {
-  toggleTodo = id => {
-    this.props.toggleTodo(id);
+const Todo = ({ todo, dispatch }) => {
+  const toggleTodo = id => {
+    const action = {
+      type: "TOGGLE_TODO",
+      payload: id
+    };
+    dispatch(action);
   };
 
-  render() {
-    return (
-      <div
-        onClick={() => this.toggleTodo(this.props.todo.id)}
-        className={this.props.todo.completed ? `cleared` : ``}
-      >
-        <li>{this.props.todo.task}</li>
-      </div>
-    );
-  }
-}
+  return (
+    <div
+      onClick={() => toggleTodo(todo.id)}
+      className={todo.completed ? `cleared` : ``}
+    >
+      <li>{todo.task}</li>
+    </div>
+  );
+};
 
 export default Todo;
