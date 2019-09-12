@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
+import { connect } from "react-redux";
+import { clearCompleted } from "./actions";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  clearCompleted = () => {
+    this.props.clearCompleted();
+  };
+
+  render() {
+    return (
+      <div className="container">
+        <h1>ToDo List</h1>
+        <TodoList />
+        <TodoForm />
+        <button onClick={this.clearCompleted}>Clear Completed</button>
+      </div>
+    );
+  }
 }
 
-export default App;
+export default connect(
+  null,
+  { clearCompleted }
+)(App);
